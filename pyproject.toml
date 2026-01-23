@@ -3,5 +3,21 @@ name = "fastqc-summary"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
+authors = [
+    { name = "Trevor F. Freeman", email = "tfreem10@vols.utk.edu" }
+]
 requires-python = ">=3.13"
 dependencies = []
+
+[project.scripts]
+fastqc-summary = "fastqc_summary:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ipython>=9.9.0",
+    "pytest>=9.0.2",
+]
