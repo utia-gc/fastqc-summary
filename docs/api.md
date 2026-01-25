@@ -4,7 +4,7 @@
 
 ::: fastqc_summary.parse_modules
     options:
-        show_root_heading:true
+        show_root_heading: true
 
 ## Utilities
 
