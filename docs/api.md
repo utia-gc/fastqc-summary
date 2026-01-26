@@ -1,5 +1,15 @@
 # API reference
 
+## FastQC data summaries
+
+::: fastqc_summary.summaries.summarize_read_count
+    options:
+        show_root_heading: true
+
+::: fastqc_summary.summaries.summarize_base_count
+    options:
+        show_root_heading: true
+
 ## Input/Output
 
 ::: fastqc_summary.parser.parse_modules
