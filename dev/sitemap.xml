@@ -8,4 +8,8 @@
          <loc>https://utia-gc.github.io/fastqc-summary/dev/api/</loc>
          <lastmod>2026-01-28</lastmod>
     </url>
+    <url>
+         <loc>https://utia-gc.github.io/fastqc-summary/dev/test-data/</loc>
+         <lastmod>2026-01-28</lastmod>
+    </url>
 </urlset>
