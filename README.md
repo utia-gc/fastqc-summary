@@ -32,14 +32,8 @@ The following summaries are available:
 The most convenient way to use FastQC Summary is through the official [Apptainer container image](https://github.com/utia-gc/fastqc-summary/pkgs/container/fastqc-summary) available publicly on the GitHub Container Registry:
 
 ```bash
-apptainer pull oras://ghcr.io/utia-gc/fastqc-summary:latest
+apptainer pull oras://ghcr.io/utia-gc/fastqc-summary:v0.1.0
 ```
-
-> [!CAUTION]  
-> For demonstration purposes, I have set the command to use the container image tagged `lastest`.
-> Best practice dictates that a specifically tagged container image version should be used.
-> Replace `:latest` with a specific version or a sha256 hash for a specific version.
-> Browse available image versions at [the fastqc-summary container versions page](https://github.com/utia-gc/fastqc-summary/pkgs/container/fastqc-summary/versions).
 
 ### uv
 
@@ -48,20 +42,14 @@ uv was used to develop FastQC Summary and is the easiest method for installing t
 Install FastQC Summary user-wide with the `uv tool install` interface:
 
 ```bash
-uv tool install git+https://github.com/utia-gc/fastqc-summary@main
+uv tool install git+https://github.com/utia-gc/fastqc-summary@v0.1.0
 ```
 
 Run FastQC Summary in a temporary environment managed by uv:
 
 ```bash
-uvx git+https://github.com/utia-gc/fastqc-summary@main
+uvx git+https://github.com/utia-gc/fastqc-summary@v0.1.0
 ```
-
-> [!CAUTION]  
-> For demonstration purposes, I have set the command to use the main branch which should be the latest development version.
-> While the dev version should be functional, good practice dictates that a tagged version release should be used unless there is an explicit reason to use the dev version.
-> Replace `@main` with a specific version tag or commit hash.
-> Browse available tagged versions at [the fastqc-summary repository tags page](https://github.com/utia-gc/fastqc-summary/tags).
 
 ### pip
 
@@ -79,14 +67,8 @@ python3 -m venv .venv
 # activate the virtual environment
 . .venv/bin/activate
 # install FastQC Summary into the virtual environment
-python3 -m pip install git+https://github.com/utia-gc/fastqc-summary@main
+python3 -m pip install git+https://github.com/utia-gc/fastqc-summary@v0.1.0
 ```
-
-> [!CAUTION]  
-> For demonstration purposes, I have set the command to use the main branch which should be the latest development version.
-> While the dev version should be functional, good practice dictates that a tagged version release should be used unless there is an explicit reason to use the dev version.
-> Replace `@main` with a specific version tag or commit hash.
-> Browse available tagged versions at [the fastqc-summary repository tags page](https://github.com/utia-gc/fastqc-summary/tags).
 
 ## Usage
 
@@ -95,13 +77,13 @@ The FastQC Summary CLI app is accessed with the `fastqc-summary` command.
 If installed through the Apptainer image, access the command through `apptainer exec`:
 
 ```bash
-apptainer exec oras://ghcr.io/utia-gc/fastqc-summary:latest fastqc-summary
+apptainer exec oras://ghcr.io/utia-gc/fastqc-summary:v0.1.0 fastqc-summary
 ```
 
 If installed with uvx, access through the `uvx` command:
 
 ```bash
-uvx git+https://github.com/utia-gc/fastqc-summary@main
+uvx git+https://github.com/utia-gc/fastqc-summary@v0.1.0
 ```
 
 Otherwise, if FastQC Summary is available on your path, e.g. by installing with `uv tool install` or `pip` inside an active virtual environment, access the command directly:
