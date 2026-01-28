@@ -74,7 +74,6 @@ def basic_stats_empty() -> Module:
     return basic_stats
 
 
-
 @pytest.fixture
 def basic_stats_sra_data() -> Module:
     """Basic Statistics module from FastQC file from SRR1067505."""

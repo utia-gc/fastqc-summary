@@ -9,7 +9,9 @@ Typical usage examples:
 """
 
 import argparse
+import io
 from pathlib import Path
+import sys
 from typing import NamedTuple
 import zipfile
 
@@ -17,6 +19,7 @@ import zipfile
 class Args(NamedTuple):
     """Command-line arguments."""
     fastqc_archive: str
+    output: str | io.TextIOWrapper
 
 
 def get_args(argv: list[str] | None = None) -> Args:
@@ -45,6 +48,13 @@ def get_args(argv: list[str] | None = None) -> Args:
         type=str,
         help="Path to FastQC ZIP archive file. This is the '_fastqc.zip' file written by FastQC.",
     )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=str,
+        default=None,
+        help="Path to output file to write summaries to. [None, '-', '/dev/stdout'] write to stdout.",
+    )
 
     args = parser.parse_args(argv)
 
@@ -54,4 +64,8 @@ def get_args(argv: list[str] | None = None) -> Args:
     if not zipfile.is_zipfile(args.fastqc_archive):
         raise zipfile.BadZipFile(f"FastQC archive file '{args.fastqc_archive}' is not a valid ZIP file.")
 
-    return Args(fastqc_archive=args.fastqc_archive)
+    # validate output path
+    if args.output in [None, "-", "/dev/stdout"]:
+        args.output = sys.stdout
+
+    return Args(fastqc_archive=args.fastqc_archive, output=args.output)

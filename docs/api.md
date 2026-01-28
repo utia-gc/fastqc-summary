@@ -1,5 +1,11 @@
 # API reference
 
+## Entrypoint(s)
+
+::: fastqc_summary.main
+    options:
+        show_root_heading: true
+
 ## FastQC data summaries
 
 ::: fastqc_summary.summaries.summarize_read_count
