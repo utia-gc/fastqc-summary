@@ -1,0 +1,59 @@
+Bootstrap: docker
+From: ghcr.io/astral-sh/uv:0.9.27-python3.13-bookworm
+Stage: build
+
+%files
+	# copy metadata files needed for builds
+	./pyproject.toml /usr/local/src/fastqc-summary/pyproject.toml
+	./uv.lock /usr/local/src/fastqc-summary/uv.lock
+	./README.md /usr/local/src/fastqc-summary/README.md
+	# copy source code
+	./src/fastqc_summary/*.py /usr/local/src/fastqc-summary/src/fastqc_summary/
+
+%post
+	# configure build environment
+	export UV_COMPILE_BYTECODE=1
+	export UV_NO_DEV=1
+
+	# work inside of the fastqc-summary app directory
+	cd /usr/local/src/fastqc-summary
+
+	# install fastqc-summary and dependencies
+	uv sync --locked
+
+
+Bootstrap: docker
+From: python:3.13.11-slim-trixie
+Stage: final
+
+%help
+	A utility for summarizing data from FastQC runs.
+
+	Usage:
+		# basic fastqc-summary usage
+		apptainer exec fastqc-summary.sif fastqc-summary [ARGS]
+		# print fastqc-summary help message
+		apptainer exec fastqc-summary.sif fastqc-summary --help
+
+	Source: https://github.com/utia-gc/fastqc-summary/
+	Documentation: https://utia-gc.github.io/fastqc-summary/
+
+%labels
+	Author Trevor F. Freeman <tfreem10@utk.edu>
+	Version v0.1.0
+	org.opencontainers.image.source https://github.com/utia-gc/fastqc-summary/
+	org.opencontainers.image.description "A utility for summarizing data from FastQC runs."
+
+%files from build
+	# copy venv with fastqc-summary installed
+	/usr/local/src/fastqc-summary/.venv
+	# copy metadata files
+	/usr/local/src/fastqc-summary/pyproject.toml
+	/usr/local/src/fastqc-summary/uv.lock
+	/usr/local/src/fastqc-summary/README.md
+	# copy source code
+	/usr/local/src/fastqc-summary/src/fastqc_summary/
+
+%environment
+	# add fastqc-summary to front of PATH
+	export PATH="/usr/local/src/fastqc-summary/.venv/bin:${PATH}"
