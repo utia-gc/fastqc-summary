@@ -40,7 +40,7 @@ Stage: final
 
 %labels
 	Author Trevor F. Freeman <tfreem10@utk.edu>
-	Version v0.1.0
+	Version v2.0.0
 	org.opencontainers.image.source https://github.com/utia-gc/fastqc-summary/
 	org.opencontainers.image.description "A utility for summarizing data from FastQC runs."
 
