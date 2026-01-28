@@ -469,6 +469,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#entrypoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrypoint(s)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entrypoint(s)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastqc_summary.main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fastqc-data-summaries" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -604,6 +632,34 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entrypoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrypoint(s)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entrypoint(s)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastqc_summary.main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#fastqc-data-summaries" class="md-nav__link">
@@ -782,7 +838,86 @@
 
 
 <h1 id="api-reference">API reference</h1>
-<h2 id="fastqc-data-summaries">FastQC data summaries</h2>
+<h2 id="entrypoints">Entrypoint(s)</h2>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="fastqc_summary.main" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">main</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents first">
+
+        <p>FastQC summary application logic.</p>
+<p><code>main()</code> serves as the entrypoint for the FastQC summary CLI application.
+It parses and validates command-line arguments, computes summaries on FastQC data, and writes those summaries.</p>
+<p><code>main()</code> takes no argument and returns no values.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/fastqc_summary/__init__.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;FastQC summary application logic.</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    `main()` serves as the entrypoint for the FastQC summary CLI application.</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    It parses and validates command-line arguments, computes summaries on FastQC data, and writes those summaries.</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    `main()` takes no argument and returns no values.</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="n">args</span> <span class="o">=</span> <span class="n">get_args</span><span class="p">()</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="c1"># map the modules needed to compute the summaries to an in memory representation of the modules</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="n">modules</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;Basic Statistics&quot;</span><span class="p">,</span> <span class="s2">&quot;Sequence Length Distribution&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">parse_modules</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fastqc_archive</span><span class="p">):</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="k">if</span> <span class="n">module</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">modules</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>            <span class="n">modules</span><span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">module</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="c1"># compute the summaries</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">summaries</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">summaries</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">summarize_read_count</span><span class="p">(</span><span class="n">modules</span><span class="p">[</span><span class="s2">&quot;Basic Statistics&quot;</span><span class="p">]))</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="n">summaries</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">summarize_base_count</span><span class="p">(</span><span class="n">modules</span><span class="p">[</span><span class="s2">&quot;Sequence Length Distribution&quot;</span><span class="p">]))</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_json</span><span class="p">:</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">summaries</span><span class="p">,</span> <span class="n">output_json</span><span class="p">)</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span> <span class="o">==</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">summaries</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><h2 id="fastqc-data-summaries">FastQC data summaries</h2>
 
 
 <div class="doc doc-object doc-function">
