@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Build image from non-slim base to include necessary utilities for Nextflow
+
 ## [2.0.0] - 2026-01-28
 
 ## [1.0.0] - 2026-01-28

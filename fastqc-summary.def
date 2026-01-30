@@ -23,7 +23,7 @@ Stage: build
 
 
 Bootstrap: docker
-From: python:3.13.11-slim-trixie
+From: python:3.13.11-trixie
 Stage: final
 
 %help
